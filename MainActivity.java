@@ -8,6 +8,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    
+    //button is a matrix which represents area of tic tac toe board
 
     private Button[][] buttons= new Button[3][3];
 
@@ -176,6 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void resetGame()
     {
+        //Initialization of points of player1 and player2
         Player1Points = 0;
         Player2Points =0;
         updatePointsText();
