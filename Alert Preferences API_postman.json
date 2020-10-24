@@ -1,0 +1,133 @@
+{
+  "id": "ad77e855-8840-4e51-8faf-dbeb6a9c8f95",
+  "name": "Alert Preferences API",
+  "description": "Alert Preferencest API manages preferences for Institution/User",
+  "order": [],
+  "folders": [
+    {
+      "id": "fa752113-d0a5-4778-9a08-0f38912408cc",
+      "name": "v1",
+      "description": "Folder for v1",
+      "order": [
+        "2a8d4c8a-becf-4aab-b00e-4bc4f38fdc47",
+        "f6fea110-42c0-4607-a993-23c3c7a6bbd7",
+        "40a61628-7447-4e96-8a9b-4c4bf05ba460",
+        "c32ca856-d403-48fc-b84a-459e769ece44",
+        "38573265-c880-4b78-82af-8021a611b8d6"
+      ],
+      "collection_name": "Alert Preferences API",
+      "collection_id": "ad77e855-8840-4e51-8faf-dbeb6a9c8f95",
+      "collection": "ad77e855-8840-4e51-8faf-dbeb6a9c8f95"
+    }
+  ],
+  "timestamp": 1413302258635,
+  "synced": false,
+  "requests": [
+    {
+      "id": "2a8d4c8a-becf-4aab-b00e-4bc4f38fdc47",
+      "headers": "Accept: */*, application/json\ninstitutionId: {{institutionId}}\nAuthorization: {{Authorization}}\ninstitutionUserId: {{institutionUserId}}\nAuthorization: Bearer {{auth_token}}",
+      "url": "http://{{base-url}}/v1/alert-preferences?accountExternalId={{accountExternalId}}&accountId={{accountId}}&alertTypes={{alertTypes}}&default=false&externalId={{externalId}}&pageNo=0&pageSize=100",
+      "pathVariables": {},
+      "preRequestScript": "",
+      "method": "GET",
+      "data": "\"array\"",
+      "rawModeData": "roles",
+      "dataMode": "raw",
+      "description": " GET User preference list with opt in or opt out status",
+      "descriptionFormat": "html",
+      "time": 1603476737061,
+      "version": 2,
+      "responses": [],
+      "tests": "",
+      "collectionId": "ad77e855-8840-4e51-8faf-dbeb6a9c8f95",
+      "synced": false,
+      "name": "Get all preferences opted by user ,if not found in alert-pref-service will be pulled Institution alert preference"
+    },
+    {
+      "id": "f6fea110-42c0-4607-a993-23c3c7a6bbd7",
+      "headers": "Accept: */*, application/json\nContent-Type: application/json\nfiId: {{fiId}}\nroles: {{roles}}\ntransactionId: {{transactionId}}\nAuthorization: {{Authorization}}\nuserId: {{userId}}\nAuthorization: Bearer {{auth_token}}",
+      "url": "http://{{base-url}}/v1/alert-preferences",
+      "pathVariables": {},
+      "preRequestScript": "",
+      "method": "POST",
+      "data": "{\"AlertPreferenceResource\":{\"type\":\"object\",\"properties\":{\"additionalInfo\":{\"type\":\"object\",\"example\":{}},\"alertOpted\":{\"type\":\"boolean\",\"example\":false},\"alertPreferenceAccountDetails\":{\"type\":\"object\",\"properties\":{\"accountExternalId\":{\"type\":\"string\",\"example\":\"String\"},\"accountId\":{\"type\":\"string\",\"example\":\"String\"},\"cardNumber\":{\"type\":\"string\",\"example\":\"String\"}},\"title\":\"AlertPreferenceAccountDetailsModel\",\"example\":{},\"_model\":\"AlertPreferenceAccountDetailsModel\"},\"alertPreferenceDetails\":{\"type\":\"object\",\"properties\":{\"alertPrefId\":{\"type\":\"integer\",\"format\":\"int64\",\"example\":48},\"alertTypeName\":{\"type\":\"string\",\"example\":\"String\"},\"channelTypeName\":{\"type\":\"string\",\"example\":\"String\"},\"externalId\":{\"type\":\"string\",\"example\":\"String\"},\"institutionCustomerId\":{\"type\":\"string\",\"example\":\"String\"},\"institutionId\":{\"type\":\"string\",\"example\":\"String\"}},\"title\":\"AlertPreferenceDetailsModel\",\"example\":{},\"_model\":\"AlertPreferenceDetailsModel\"},\"allowCallback\":{\"type\":\"boolean\",\"example\":false},\"defaultPreferences\":{\"type\":\"boolean\",\"example\":false}},\"title\":\"AlertPreferenceResource\",\"example\":{}}}",
+      "rawModeData": "alertPreferenceModel",
+      "dataMode": "raw",
+      "description": "Create user alert preference of certain user with destination presence earlier",
+      "descriptionFormat": "html",
+      "time": 1603476737062,
+      "version": 2,
+      "responses": [],
+      "tests": "",
+      "collectionId": "ad77e855-8840-4e51-8faf-dbeb6a9c8f95",
+      "synced": false,
+      "name": "Create user alert preference for institution customer "
+    },
+    {
+      "id": "40a61628-7447-4e96-8a9b-4c4bf05ba460",
+      "headers": "Accept: */*, application/json\nfiId: {{fiId}}\nroles: {{roles}}\ntransactionId: {{transactionId}}\nAuthorization: {{Authorization}}\nAuthorization: Bearer {{auth_token}}",
+      "url": "http://{{base-url}}/v1/alert-preferences/:alertPreferenceId",
+      "pathVariables": {
+        "alertPreferenceId": "{{alertPreferenceId}}"
+      },
+      "preRequestScript": "",
+      "method": "GET",
+      "data": "\"string\"",
+      "rawModeData": "userId",
+      "dataMode": "raw",
+      "description": "",
+      "descriptionFormat": "html",
+      "time": 1603476737062,
+      "version": 2,
+      "responses": [],
+      "tests": "",
+      "collectionId": "ad77e855-8840-4e51-8faf-dbeb6a9c8f95",
+      "synced": false,
+      "name": "Get alert preference by id"
+    },
+    {
+      "id": "c32ca856-d403-48fc-b84a-459e769ece44",
+      "headers": "Accept: */*, application/json\nContent-Type: application/json\nfiId: {{fiId}}\nroles: {{roles}}\ntransactionId: {{transactionId}}\nuserId: {{userId}}\nAuthorization: Bearer {{auth_token}}",
+      "url": "http://{{base-url}}/v1/alert-preferences/:alertPreferenceId?allowCallback=true",
+      "pathVariables": {
+        "alertPreferenceId": "{{alertPreferenceId}}"
+      },
+      "preRequestScript": "",
+      "method": "PUT",
+      "data": "{\"AlertPreferenceResource\":{\"type\":\"object\",\"properties\":{\"additionalInfo\":{\"type\":\"object\",\"example\":{}},\"alertOpted\":{\"type\":\"boolean\",\"example\":false},\"alertPreferenceAccountDetails\":{\"type\":\"object\",\"properties\":{\"accountExternalId\":{\"type\":\"string\",\"example\":\"String\"},\"accountId\":{\"type\":\"string\",\"example\":\"String\"},\"cardNumber\":{\"type\":\"string\",\"example\":\"String\"}},\"title\":\"AlertPreferenceAccountDetailsModel\",\"example\":{},\"_model\":\"AlertPreferenceAccountDetailsModel\"},\"alertPreferenceDetails\":{\"type\":\"object\",\"properties\":{\"alertPrefId\":{\"type\":\"integer\",\"format\":\"int64\",\"example\":48},\"alertTypeName\":{\"type\":\"string\",\"example\":\"String\"},\"channelTypeName\":{\"type\":\"string\",\"example\":\"String\"},\"externalId\":{\"type\":\"string\",\"example\":\"String\"},\"institutionCustomerId\":{\"type\":\"string\",\"example\":\"String\"},\"institutionId\":{\"type\":\"string\",\"example\":\"String\"}},\"title\":\"AlertPreferenceDetailsModel\",\"example\":{},\"_model\":\"AlertPreferenceDetailsModel\"},\"allowCallback\":{\"type\":\"boolean\",\"example\":false},\"defaultPreferences\":{\"type\":\"boolean\",\"example\":false}},\"title\":\"AlertPreferenceResource\",\"example\":{}}}",
+      "rawModeData": "alertPrefModel",
+      "dataMode": "raw",
+      "description": "Update user alert preference for opt in/opt out",
+      "descriptionFormat": "html",
+      "time": 1603476737062,
+      "version": 2,
+      "responses": [],
+      "tests": "",
+      "collectionId": "ad77e855-8840-4e51-8faf-dbeb6a9c8f95",
+      "synced": false,
+      "name": "Update user alert preference for  existing alert preference"
+    },
+    {
+      "id": "38573265-c880-4b78-82af-8021a611b8d6",
+      "headers": "Accept: */*, application/json\nroles: {{roles}}\ntransactionId: {{transactionId}}\nAuthorization: {{Authorization}}\nuserId: {{userId}}\nAuthorization: Bearer {{auth_token}}",
+      "url": "http://{{base-url}}/v1/alert-preferences/:alertPreferenceId",
+      "pathVariables": {
+        "alertPreferenceId": "{{alertPreferenceId}}"
+      },
+      "preRequestScript": "",
+      "method": "DELETE",
+      "data": "\"string\"",
+      "rawModeData": "fiId",
+      "dataMode": "raw",
+      "description": "Removal of particular user alert preference ",
+      "descriptionFormat": "html",
+      "time": 1603476737062,
+      "version": 2,
+      "responses": [],
+      "tests": "",
+      "collectionId": "ad77e855-8840-4e51-8faf-dbeb6a9c8f95",
+      "synced": false,
+      "name": "Delete user alert preference for  existing alert preference"
+    }
+  ]
+}
